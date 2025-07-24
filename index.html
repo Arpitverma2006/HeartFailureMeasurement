@@ -1,0 +1,73 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Failure Prediction</title>
+  <style>
+    body {
+      background: #f0f2f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+    }
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 600px;
+    }
+    h2 {
+      text-align: center;
+      color: #c0392b;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #c0392b;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Heart Failure Risk Predictor</h2>
+    <form method="POST" action="/predict">
+      <input type="text" name="age" placeholder="Age" required>
+      <input type="text" name="anaemia" placeholder="Anaemia (0 or 1)" required>
+      <input type="text" name="creatinine_phosphokinase" placeholder="CPK Level" required>
+      <input type="text" name="diabetes" placeholder="Diabetes (0 or 1)" required>
+      <input type="text" name="ejection_fraction" placeholder="Ejection Fraction" required>
+      <input type="text" name="high_blood_pressure" placeholder="High Blood Pressure (0 or 1)" required>
+      <input type="text" name="platelets" placeholder="Platelets" required>
+      <input type="text" name="serum_creatinine" placeholder="Serum Creatinine" required>
+      <input type="text" name="serum_sodium" placeholder="Serum Sodium" required>
+      <input type="text" name="sex" placeholder="Sex (1 = Male, 0 = Female)" required>
+      <input type="text" name="smoking" placeholder="Smoking (0 or 1)" required>
+      <input type="text" name="time" placeholder="Follow-up Time (in days)" required>
+      <button type="submit">Predict</button>
+    </form>
+    <div class="result">{{ prediction_text }}</div>
+  </div>
+</body>
+</html>
